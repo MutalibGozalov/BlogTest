@@ -1,0 +1,12 @@
+﻿
+@model IEnumerable<Blog> 
+
+@{
+	int delay = 200;
+}
+@foreach (var blog in Model)
+{
+	@await Html.PartialAsync("_BlogPartialView", blog)
+
+	delay += 100;
+}
