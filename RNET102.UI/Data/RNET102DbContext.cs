@@ -11,6 +11,7 @@ namespace RNET102.UI.Data
 		}
 		public DbSet<Product> Products { get; set; } 
 		public DbSet<Category> Categories { get; set; } 
+		public DbSet<RNET102.UI.Models.Blog> Blog { get; set; } = default!;
 	}	
 }
 
