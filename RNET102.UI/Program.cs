@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using RNET102.UI.Data;
+using RNET102.UI.Models;
 
 internal class Program
 {
@@ -14,6 +15,12 @@ internal class Program
 			options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultCnnString") ?? throw new InvalidOperationException("Connection string not found.")));
 		
 		var app = builder.Build();
+
+		using(var scope = app.Services.CreateScope())
+		{
+			var services = scope.ServiceProvider;
+			Seed.Initialize(services);
+		}
 
 		// Configure the HTTP request pipeline.
 		if (!app.Environment.IsDevelopment())
@@ -40,8 +47,6 @@ internal class Program
 			name: "default",
 			pattern: "{controller=Home}/{action=Index}/{id?}");
 		});
-
-		
 
 		app.Run();
 	}

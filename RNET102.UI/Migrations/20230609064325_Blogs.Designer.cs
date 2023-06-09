@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RNET102.UI.Data;
 
@@ -11,9 +12,11 @@ using RNET102.UI.Data;
 namespace RNET102.UI.Migrations
 {
     [DbContext(typeof(RNET102DbContext))]
-    partial class RNET102DbContextModelSnapshot : ModelSnapshot
+    [Migration("20230609064325_Blogs")]
+    partial class Blogs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -20,78 +20,78 @@ namespace RNET102.UI.Areas.Admin.Controllers
             _context = context;
         }
 
-        // GET: Admin/Blogs
+        // GET: Admin/Blogss
         public async Task<IActionResult> Index()
         {
-              return _context.Blog != null ? 
-                          View(await _context.Blog.ToListAsync()) :
-                          Problem("Entity set 'RNET102DbContext.Blog'  is null.");
+              return _context.Blogs != null ? 
+                          View(await _context.Blogs.ToListAsync()) :
+                          Problem("Entity set 'RNET102DbContext.Blogs'  is null.");
         }
 
-        // GET: Admin/Blogs/Details/5
+        // GET: Admin/Blogss/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Blog == null)
+            if (id == null || _context.Blogs == null)
             {
                 return NotFound();
             }
 
-            var blog = await _context.Blog
+            var Blogs = await _context.Blogs
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (blog == null)
+            if (Blogs == null)
             {
                 return NotFound();
             }
 
-            return View(blog);
+            return View(Blogs);
         }
 
-        // GET: Admin/Blogs/Create
+        // GET: Admin/Blogss/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Blogs/Create
+        // POST: Admin/Blogss/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ImageURL,PublishDate,Title,Content")] Blog blog)
+        public async Task<IActionResult> Create([Bind("Id,ImageURL,PublishDate,Title,Content")] Blog Blogs)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(blog);
+                _context.Add(Blogs);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(blog);
+            return View(Blogs);
         }
 
-        // GET: Admin/Blogs/Edit/5
+        // GET: Admin/Blogss/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Blog == null)
+            if (id == null || _context.Blogs == null)
             {
                 return NotFound();
             }
 
-            var blog = await _context.Blog.FindAsync(id);
-            if (blog == null)
+            var Blogs = await _context.Blogs.FindAsync(id);
+            if (Blogs == null)
             {
                 return NotFound();
             }
-            return View(blog);
+            return View(Blogs);
         }
 
-        // POST: Admin/Blogs/Edit/5
+        // POST: Admin/Blogss/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ImageURL,PublishDate,Title,Content")] Blog blog)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ImageURL,PublishDate,Title,Content")] Blog Blogs)
         {
-            if (id != blog.Id)
+            if (id != Blogs.Id)
             {
                 return NotFound();
             }
@@ -100,12 +100,12 @@ namespace RNET102.UI.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(blog);
+                    _context.Update(Blogs);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BlogExists(blog.Id))
+                    if (!BlogsExists(Blogs.Id))
                     {
                         return NotFound();
                     }
@@ -116,49 +116,49 @@ namespace RNET102.UI.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(blog);
+            return View(Blogs);
         }
 
-        // GET: Admin/Blogs/Delete/5
+        // GET: Admin/Blogss/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Blog == null)
+            if (id == null || _context.Blogs == null)
             {
                 return NotFound();
             }
 
-            var blog = await _context.Blog
+            var Blogs = await _context.Blogs
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (blog == null)
+            if (Blogs == null)
             {
                 return NotFound();
             }
 
-            return View(blog);
+            return View(Blogs);
         }
 
-        // POST: Admin/Blogs/Delete/5
+        // POST: Admin/Blogss/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Blog == null)
+            if (_context.Blogs == null)
             {
-                return Problem("Entity set 'RNET102DbContext.Blog'  is null.");
+                return Problem("Entity set 'RNET102DbContext.Blogs'  is null.");
             }
-            var blog = await _context.Blog.FindAsync(id);
-            if (blog != null)
+            var Blogs = await _context.Blogs.FindAsync(id);
+            if (Blogs != null)
             {
-                _context.Blog.Remove(blog);
+                _context.Blogs.Remove(Blogs);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BlogExists(int id)
+        private bool BlogsExists(int id)
         {
-          return (_context.Blog?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Blogs?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

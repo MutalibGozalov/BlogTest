@@ -1,13 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
+using RNET102.UI.Data;
 
 namespace RNET102.UI.ViewComponents
 {
 	public class BlogViewComponent : ViewComponent
 	{
-		public async Task<IViewComponentResult> InvokeAsync()
+		RNET102DbContext context;
+        public BlogViewComponent(RNET102DbContext context)
+        {
+			this.context = context;
+        }
+        public async Task<IViewComponentResult> InvokeAsync()
 		{
-			var blogs = Models.Seed.BlogSeedData;
+			var blogs = context.Blogs.ToList();
 			return View(model: blogs);
 		}
 	}
