@@ -1,0 +1,6 @@
+﻿@model IEnumerable<Product>
+
+@foreach(var product in Model)
+{
+	@await Html.PartialAsync("_ProductPartialView", product)
+}

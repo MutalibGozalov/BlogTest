@@ -76,12 +76,12 @@ namespace RNET102.UI.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var Blogs = await _context.Blogs.FindAsync(id);
-            if (Blogs == null)
+            var Blog = await _context.Blogs.FindAsync(id);
+            if (Blog == null)
             {
                 return NotFound();
             }
-            return View(Blogs);
+            return View(Blog);
         }
 
         // POST: Admin/Blogss/Edit/5

@@ -1,0 +1,47 @@
+﻿@model Product
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 w_mxs_full m_xs_bottom_30 animated hidden" data-animation="fadeInDown">
+	<!--product-->
+	<figure class="product_item relative c_image_container frame_container t_sm_align_c r_image_container">
+		<!--image & buttons & label-->
+		<div class="relative">
+			<a href="#" class="d_block">
+				<img src="@Model.ImageURL" alt="" class="c_image_1 tr_all">
+				<img src="@Model.ImageURL" alt="" class="c_image_2 tr_all">
+			</a>
+			<div class="product_label fs_ex_small circle color_white bg_lbrown t_align_c vc_child tt_uppercase"><i class="d_inline_m">Sale!</i></div>
+			<div class="product_buttons_container bg_white tr_all">
+				<div class="row t_sm_align_c">
+					<div class="col-lg-8 col-md-8">
+						<div class="clearfix m_sm_bottom_3 d_sm_inline_b">
+							<button class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative"><i class="fa fa-heart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Wishlist</span></button>
+							<button class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative"><i class="fa fa-arrow-right fs_small d_inline_m"></i><i class="fa fa-arrow-left fs_small d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Compare</span></button>
+							<button data-popup="#quick_view" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="button_type_8 grey state_2 tr_delay color_dark t_align_c vc_child f_left m_right_3 tooltip_container relative m_sm_right_0"><i class="fa fa-eye fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Quick View</span></button>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 t_align_r t_sm_align_c">
+						<button data-popup="#add_to_cart_popup" data-popup-transition-in="bounceInUp" data-popup-transition-out="bounceOutUp" class="button_type_8 tr_all lbrown color_dark t_align_c vc_child tooltip_container relative"><i class="fa fa-shopping-cart fs_large d_inline_m"></i><span class="tooltip top fs_small color_white hidden animated" data-show="fadeInDown" data-hide="fadeOutUp">Add to Cart</span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<figcaption class="bg_white relative">
+			<div class="row">
+				<div class="col-lg-7 col-md-7 m_bottom_7">
+					<a class="second_font sc_hover d_xs_block" href="#">@Model.Name</a>
+					<a href="#" class="fw_light color_light sc_hover">@Model.Category</a>
+				</div>
+				<div class="col-lg-5 col-md-5 color_light fs_large second_font t_align_r t_sm_align_c m_bottom_5">
+					<b>$ @Model.Price</b>
+				</div>
+			</div>
+			<ul class="rating_list hr_list d_sm_inline_b">
+				<li class="color_lbrown"><i class="fa fa-star tr_all"></i></li>
+				<li class="color_lbrown"><i class="fa fa-star tr_all"></i></li>
+				<li class="color_lbrown"><i class="fa fa-star tr_all"></i></li>
+				<li><i class="fa fa-star tr_all"></i></li>
+				<li><i class="fa fa-star tr_all"></i></li>
+			</ul>
+		</figcaption>
+	</figure>
+</div>
